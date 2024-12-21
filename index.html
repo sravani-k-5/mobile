@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Interface</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 90mm;
+            height: 168mm;
+            border-radius: 37px;
+            background-image: url("short.jpeg");
+            background-size: cover;
+            border: 8px solid black;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden; /* Prevents content from overflowing */
+        }
+
+        .head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            background-color: green;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+            color: white;
+        }
+
+        .head img {
+            border-radius: 50%;
+            width: 90px;
+            height: 40px;
+            margin-right: 50px;
+        }
+
+        .name {
+            font-size: 16px;
+            margin-right: 90px;
+        }
+
+        .icons {
+            display: flex;
+            gap: 15px;
+            font-size: 20px;
+        }
+
+        .subContainer {
+            flex-grow: 1; /* Makes the chat box take remaining space */
+            overflow-y: scroll; /* Enables vertical scrolling */
+            padding: 10px;
+            height: 100%; /* Ensures it fills the available space */
+            max-height: calc(100% - 80px); /* Adjusts based on the header and footer height */
+        }
+
+        /* Hide the scrollbar but allow scrolling */
+        .subContainer::-webkit-scrollbar {
+            width: 0px; /* Hide the scrollbar */
+            height: 0px; /* Hide horizontal scrollbar */
+        }
+
+        .subContainer::-webkit-scrollbar-thumb {
+            background: transparent; /* Ensure no thumb appears */
+        }
+
+        .message {
+            display: flex;
+            margin-bottom: 10px;
+            max-width: 70%;
+        }
+
+        .message.right {
+            margin-left: auto;
+            justify-content: flex-end;
+        }
+
+        .message.left {
+            justify-content: flex-start;
+        }
+
+        .message span {
+            padding: 10px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        .message.right span {
+            background-color: #00ba8c;
+            color: white;
+        }
+
+        .message.left span {
+            background-color: aqua;
+            color: black;
+        }
+
+        .footer {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background-color:white;
+            border-radius: 0 0 30px 30px;
+            gap: 10px;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            bottom: 0;
+            width: 100%;
+        } 
+
+        .footer input {
+            flex-grow: 2; 
+            height: 40px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            padding: 0 15px;
+            font-size: 14px;
+        }
+        .footer .fa-paperclip{
+            position: absolute;
+            left: 230px;
+        }
+        .footer .fa-camera{
+            position: relative; 
+            right:50px;
+        }
+        /* .footer .fa-face-smile{
+            position: relative;
+            right: 160px;
+        } */
+        .footer .fa-microphone{
+            position: relative;
+            right: 30px;
+        }
+        
+        .date {
+            text-align: center;
+            margin: 10px auto;
+            padding: 5px 10px;
+            background-color: #ddd;
+            border-radius: 10px;
+            font-size: 12px;
+            width: fit-content;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="head">
+            <div class="back"><i class="fa fa-arrow-left"></i></div>
+            <img src="sec.jpeg" alt="Profile">
+            <p class="name">Sravani</p>
+            <div class="icons">
+                <i class="fa-solid fa-video"></i>
+                <i class="fa-solid fa-phone"></i>
+                <i class="fa fa-ellipsis-vertical"></i>
+            </div>
+        </div>
+
+        <!-- Chat Messages Section -->
+        <div class="subContainer">
+            <div class="date">02-05-2024</div>
+            <div class="message right"><span>Hi!</span></div>
+            <div class="message left"><span>Hi.. How are you?</span></div>
+            <div class="message right"><span>I'm good, how about you?</span></div>
+            <div class="message left"><span>I'm fine.</span></div>
+            <div class="message right"><span>What are you doing now?</span></div>
+            <div class="message left"><span>I'm learning frontend development.</span></div>
+            <div class="message right"><span>Where are you learning?</span></div>
+            <div class="message left"><span>At 10000 Coders.</span></div>
+            <div class="message right"><span>hloo</span></div>
+            <div class="date">02-05-2024</div>
+            <div class="message left"><span>ha..</span></div>
+            <div class="message right"><span>where are you</span></div>
+            <div class="message left"><span>iam in class</span></div>
+            <div class="message right"><span>kk</span></div>
+            <div class="message left"><span>why did you ask like that..?</span></div>
+            <div class="message right"><span>ntg..</span></div>
+            <div class="date">02-05-2024</div>
+            <div class="message left"><span>hloo</span></div>
+            <div class="message right"><span>haa...</span></div>
+            <div class="message left"><span>do you have any wor..?</span></div>
+        </div>
+
+        <!-- Footer Input Section -->
+        <div class="footer">
+            <input type="text" placeholder="Type a message...">
+            <i class="fa fa-paperclip"></i>
+            <i class="fa fa-camera"></i>
+            <i class="fa fa-microphone"></i>
+        </div>
+    </div>
+</body>
+</html>
